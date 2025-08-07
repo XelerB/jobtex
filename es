@@ -1,1 +1,712 @@
 es/index.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="alternate" hreflang="ru" href="https://site.ru/ru/" />
+    <link rel="alternate" hreflang="es" href="https://site.ru/es/" />
+    <meta charset="UTF-8">
+    <title>СТРОИТЕЛЬНАЯ КОМПАНИЯ TEX — РАБОТА В ИСПАНИИ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --secondary: #ff9800;
+            --background: #f5f7fa;
+            --text: #263238;
+            --text-light: #546e7a;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .flag-container {
+            scale: 2.5;
+            position: absolute;
+            top: 25px;
+            right: 50px;
+        }
+        .button {
+            display: inline-block;
+  padding: 1px 3px;
+  margin: 1px;
+  background-color: #FF6F00;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+        }
+        /* Header */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        .main-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .header-highlight {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-bg {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .section-bg:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            aspect-ratio: 16/9;
+            transition: var(--transition);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .styled-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .styled-list li::after {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 60px 0;
+        }
+
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(255,152,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,152,0,0.4);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 8px 20px rgba(46,125,50,0.4);
+        }
+
+        .btn-lg {
+            padding: 18px 40px;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonial-slider {
+            margin: 60px 0;
+        }
+
+        .testimonial {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            margin: 20px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary-light);
+            opacity: 0.1;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-bg {
+                padding: 30px 20px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-lg {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header {
+                padding: 60px 0 40px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header-highlight {
+                font-size: 1rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="flag-container">
+                <a href="https://XelerB.github.io/jobtex/ru/" class="button">🇷🇺</a>
+                <a href="https://XelerB.github.io/jobtex/es/" class="button">🇪🇸</a>
+            </div>
+            <div class="header-content">
+                <img src="logo.png" alt="Логотип TEX" class="logo">
+                <h1>СТРОИТЕЛЬНАЯ КОМПАНИЯ TEX</h1>
+                <p class="header-subtitle">Работа в Испании для ответственных специалистов</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate">Добро пожаловать в TEX</h2>
+            <div class="section-bg animate" style="transition-delay: 0.1s">
+                <p>Мы — одна из крупнейших строительных компаний Испании. Более 30 лет на рынке, реализуем проекты для ведущих брендов страны:</p>
+                
+                <ul>
+                    <li>🛢 Repsol (нефтяная отрасль)</li>
+                    <li>🛒 Mercadona (сети супермаркетов)</li>
+                    <li>🚗 SEAT (автопром)</li>
+                </ul>
+                
+                <p>📍 50+ активных строек по всей Испании — от Барселоны до Мадрида. Мы растём и ищем новых сотрудников!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" style="background-color: #f0f4f7;">
+        <div class="container">
+            <h2 class="section-title animate">Что мы предлагаем</h2>
+            
+            <div class="section-bg animate">
+                <ul class="checklist">
+                    <li>Официальное трудоустройство и стабильный контракт</li>
+                    <li>14 зарплат в год — с летней и зимней премией</li>
+                    <li>Бессрочный контракт — вы защищены законом</li>
+                    <li>Доплаты за переработки</li>
+                    <li>Помощь с жильём — аренда по разумной цене или наши квартиры</li>
+                    <li>Современные объекты, соблюдение всех норм безопасности</li>
+                    <li>Медосмотры, спецодежда, обучение технике безопасности</li>
+                </ul>
+                
+                <p style="text-align: center; font-weight: 500;">📌 Работать в TEX — значит чувствовать стабильность, уважение и защиту.</p>
+
+                <div class="gallery">
+                    <div class="gallery-item animate" style="transition-delay: 0.1s">
+                        <img src="photo1.jpg" alt="Техника TEX на объекте">
+                    </div>
+                    <div class="gallery-item animate" style="transition-delay: 0.2s">
+                        <img src="photo2.jpg" alt="Рабочий процесс TEX">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vacancies Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate">Кого мы ищем</h2>
+            <div class="section-bg animate">
+                <ul class="vacancies">
+                    <li>Строительных рабочих</li>
+                    <li>Водителей</li>
+                    <li>Целые строительные бригады</li>
+                </ul>
+                <p>Главное — ответственность, аккуратность и трудолюбие.<br>Опыт в строительстве приветствуется.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Requirements -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate">Требования по испанскому языку</h2>
+            <div class="section-bg animate">
+                <p>Минимальный уровень A2. Вы должны понимать простые инструкции и уметь ответить, если вас что-то спрашивают.</p>
+                <div class="highlight-box">
+                    <p>📌 Все сотрудники проходят курс по технике безопасности.<br>
+                    📌 На стройках бывают проверки. Если сотрудник не понимает — страдает компания.</p>
+                </div>
+                <p>В TEX мы соблюдаем закон. Поэтому ищем тех, кто умеет и хочет работать по-честному.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+        <div class="container">
+            <div class="section-bg" style="text-align: center; background-color: #e8f5e9; padding: 15px;">
+                <p class="animate" style="font-weight: 600; color: var(--primary);">✔️ TEX — забота о сотрудниках, честность и уважение</p>
+            </div>
+            
+            <h2 class="section-title animate" style="margin-top: 30px;">Почему TEX — правильный выбор</h2>
+            <div class="section-bg animate">
+                <ul class="reasons">
+                    <li>Нам доверяют крупнейшие компании Испании</li>
+                    <li>Мы заботимся о каждом сотруднике: жильё, здоровье, безопасность</li>
+                    <li>У нас не «обещают» — у нас выполняют</li>
+                </ul>
+                <p>Если вы ищете не просто работу, а стабильность, уважение и человеческое отношение — добро пожаловать в TEX.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title animate">Оставьте заявку прямо сейчас</h2>
+                <p class="cta-text animate" style="transition-delay: 0.1s">Нам нужны ответственные люди — и, возможно, вы один из них.</p>
+                <a href="https://docs.google.com/forms/d/1J4gt6zp3UG5HSAdo8zNCPJ02nOo-ucHj3soaiJjuo3A/viewform" class="btn btn-lg animate" style="transition-delay: 0.2s" target="_blank">Заполнить анкету</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate">Контакты</h2>
+            <div class="footer-contacts animate">
+                <p>Телефон: <b>+34 667 813 564</b></p>
+                <p>Email: <b>seleccionpersonal@obratex.com</b></p>
+                <p>Адрес офиса: Calle Mayor, 10, Мадрид, Испания</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p class="copyright animate">© 2025 Строительная компания TEX</p>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
